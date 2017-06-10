@@ -1,0 +1,23 @@
+{%extends 'reservations/header.html' %}
+
+{%block content%}
+<h1 class="text-center">Login</h1>
+<br>
+<div class="col-xs-6 col-xs-offset-3">
+<div style="margin: 0 auto;">
+<form method="post">
+	{% csrf_token %}
+	<div class="form-group">
+	<p class="text-center"><label for="id_username">Username:</label></p> 
+	<input type="text" class="form-control" name="username" autofocus maxlength="254" required id="id_username" />
+	</div>
+	<div class="form-group">
+	<p class="text-center"><label for="id_password">Password:</label> </p>
+	<input type="password" class="form-control" name="password" required id="id_password" />
+	</div>
+	<button class="btn btn-outline btn-block" type="submit">Entrar</button>
+</form>
+<br>
+</div>
+</div>
+{%endblock%}

@@ -1,0 +1,48 @@
+{%extends 'reservations/header.html' %}
+
+{%block content%}
+<h2 class="text-center">Reservas de {{name}}</h2>
+<br>
+<div class="table-responsive">
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Começo</th>
+            <th>Término</th>
+            <th>Quem Reservou</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for reserva in reservas %}
+        <tr>
+            <td>{{reserva.comecoReserva}}</td>
+            <td>{{reserva.terminoReserva}}</td>
+            <td>{{reserva.donoReserva}}</td>
+        </tr>
+    {%endfor%}
+    </tbody>
+</table>
+</div>
+<div class="col-xs-4 col-xs-offset-4">
+    <h3 class="text-center">Fazer Nova Reserva</h3>
+    <br>
+    <form method="post">
+    {%csrf_token%}
+        <div class="form-group">
+            <label>Selecione o começo da reserva</label>
+            <input class="form-control" type="datetime-local" name="comecoReserva" >
+        </div>
+        <div class="form-group">
+            <label>Selecione o termino da reserva</label>
+            <input class="form-control" type="datetime-local" name="terminoReserva" >
+        </div>
+        <div class="form-group">
+            <label>Digite o nome do responsável da reserva</label>
+            <input class="form-control" type="text" name="donoReserva" >
+        </div>
+        <button class="btn btn-block btn-outline" type="submit">Reservar</button>
+    </form>
+    <br>
+    <br>
+</div>
+{%endblock%}
